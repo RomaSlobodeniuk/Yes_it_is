@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\MyForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -126,5 +127,12 @@ class SiteController extends Controller
     public function actionHello($msg = 'Hello World From The Other Side! It\'s Roma')
     {
         return $this->render('hello', ['message' => $msg]);
+    }
+
+    public function actionForm()
+    {
+        $form = new MyForm();
+
+        return $this->render('form', ['form' => $form]);
     }
 }

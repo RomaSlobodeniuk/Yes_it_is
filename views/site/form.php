@@ -8,6 +8,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+
+$this->title = 'Form';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?php $f = ActiveForm::begin();?>

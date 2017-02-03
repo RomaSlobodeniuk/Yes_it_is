@@ -7,6 +7,12 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'defaultRoute' => 'post/index',
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'defaultRoute' => 'post/index',
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -48,9 +54,9 @@ $config = [
 //                'test' => 'post/test',
 //                '<action>' => 'site/<action>',
 //                '<action>' => 'post/<action>'
-            'post/<id:\d+>' => 'post/view',
-            'page/<page:\d+>' => 'post/index',
-            '/' => 'post/index'
+                'post/<id:\d+>' => 'post/view',
+                'page/<page:\d+>' => 'post/index',
+                '/' => 'post/index'
             ],
         ],
 

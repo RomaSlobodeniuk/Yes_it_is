@@ -3,6 +3,7 @@
 namespace app\controllers;
 use app\models\Post;
 use yii\data\Pagination;
+use yii\web\HttpException;
 
 class PostController extends AppController
 {
@@ -33,8 +34,12 @@ class PostController extends AppController
 
     function actionView( $id = '')
     {
-        $single_post = Post::find()->where(['id' => $id])->one();
-
+        $id = \Yii::$app->request->get('id'); // as alternative way to get id;
+//        $single_post = Post::find()->where(['id' => $id])->one();
+        $single_post = Post::findOne($id); // as alternative syntax;
+        if(empty($single_post)){
+            throw new HttpException(404, 'The page you are searching for doesn\'t exist!');
+        }
         $data = array();
         $data['title'] = $single_post->title;
         $data['text'] = $single_post->text;

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 27.11.16
- * Time: 11:50
- */
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -12,6 +6,14 @@ use yii\widgets\ActiveForm;
 $this->title = 'Form';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<?php if($name && $email):;?>
+    <div class="alert alert-info">
+        <p>You typed the name: <?= $name;?></p>
+        <p>You typed the email: <?= $email;?></p>
+    </div>
+<?php endif; ?>
+
 
 <?php $f = ActiveForm::begin();?>
 <?=$f->field($form, 'name');?>

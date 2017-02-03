@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 27.11.16
- * Time: 11:40
- */
 
 namespace app\models;
 
@@ -19,7 +13,7 @@ class MyForm extends Model
     {
         return [
           [['name', 'email'], 'required'],
-            ['email', 'email']
+            ['email', 'email', 'message' => 'Your email is incorrect!']
         ];
     }
 

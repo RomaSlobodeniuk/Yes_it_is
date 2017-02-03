@@ -38,6 +38,8 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'PostIndex', 'url' => ['/post/index']],
             ['label' => 'PostTest', 'url' => ['/post/test']],
+            ['label' => 'Hello', 'url' => ['/site/hello']],
+            ['label' => 'Form', 'url' => ['/site/form']],
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],

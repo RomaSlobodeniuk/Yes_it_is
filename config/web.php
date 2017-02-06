@@ -54,8 +54,10 @@ $config = [
 //                'test' => 'post/test',
 //                '<action>' => 'site/<action>',
 //                '<action>' => 'post/<action>'
-                'post/<id:\d+>' => 'post/view',
                 'page/<page:\d+>' => 'post/index',
+                'post/<id:\d+>' => 'post/view',
+                'publications/<page:\d+>' => 'site/publications',
+                'publication/<id:\d+>' => 'site/view',
                 '/' => 'post/index'
             ],
         ],

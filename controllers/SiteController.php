@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 
-//use GuzzleHttp\Psr7\UploadedFile;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -13,6 +12,8 @@ use app\models\ContactForm;
 use app\models\MyForm;
 use yii\helpers\Html;
 use yii\web\UploadedFile;
+use app\models\Publications;
+use yii\data\Pagination;
 
 
 class SiteController extends Controller
@@ -149,5 +150,28 @@ class SiteController extends Controller
         return $this->render('form', ['form' => $form,
                                         'name' => $name,
                                         'email' => $email]);
+    }
+
+    public function actionPublications(){
+
+        $query = Publications::find()->select('id, title, short_content, author_name')->orderBy('id DESC');
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 2, 'pageSizeParam' => FALSE, 'forcePageParam' => FALSE]);
+        $publications = $query->offset($pages->offset)->limit($pages->limit)->all();
+
+        return $this->render('publications', ['publications' => $publications, 'pages' => $pages]);
+    }
+
+    function actionView()
+    {
+        $id = \Yii::$app->request->get('id'); // as alternative way to get id;
+//        $single_post = Post::find()->where(['id' => $id])->one();
+        $single_publication = Publications::findOne($id); // as alternative syntax;
+        if(empty($single_publication)){
+            throw new HttpException(404, 'The page you are searching for doesn\'t exist!');
+        }
+        $data = array();
+        $data['title'] = $single_publication->title;
+        $data['content'] = $single_publication->content;
+        return $this->render('view', compact('data')) ;
     }
 }

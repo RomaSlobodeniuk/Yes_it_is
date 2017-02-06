@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+//use GuzzleHttp\Psr7\UploadedFile;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -11,6 +12,7 @@ use app\models\ContactForm;
 
 use app\models\MyForm;
 use yii\helpers\Html;
+use yii\web\UploadedFile;
 
 
 class SiteController extends Controller
@@ -138,6 +140,8 @@ class SiteController extends Controller
         if ($form->load(Yii::$app->request->post()) && $form->validate()){
             $name = Html::encode($form->name);
             $email = Html::encode($form->email);
+            $form->file = UploadedFile::getInstance($form, 'file');
+            $form->file->saveAs('uploads/' . $form->file->baseName . '.' . $form->file->extension);
         } else {
             $name = '';
             $email = '';

@@ -15,8 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php endif; ?>
 
 
-<?php $f = ActiveForm::begin();?>
+<?php $f = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]);?>
 <?=$f->field($form, 'name');?>
 <?=$f->field($form, 'email');?>
+<?=$f->field($form, 'file')->fileInput();?>
 <?=Html::submitButton('Let\'s go');?>
 <?php ActiveForm::end();?>

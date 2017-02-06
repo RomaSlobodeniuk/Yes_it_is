@@ -158,6 +158,11 @@ class SiteController extends Controller
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 2, 'pageSizeParam' => FALSE, 'forcePageParam' => FALSE]);
         $publications = $query->offset($pages->offset)->limit($pages->limit)->all();
 
+//        $_SESSION['redirect_id'] =  getId();
+
+        $session = Yii::$app->session;
+        $session->set("redirect_id", getId());
+
         return $this->render('publications', ['publications' => $publications, 'pages' => $pages]);
     }
 
@@ -172,6 +177,7 @@ class SiteController extends Controller
         $data = array();
         $data['title'] = $single_publication->title;
         $data['content'] = $single_publication->content;
+        $data['redirect_id'] = Yii::$app->session->get("redirect_id");
         return $this->render('view', compact('data')) ;
     }
 }

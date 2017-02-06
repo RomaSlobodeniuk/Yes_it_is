@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\Publications;
 use Yii;
 use app\modules\admin\models\Post;
 use yii\data\ActiveDataProvider;

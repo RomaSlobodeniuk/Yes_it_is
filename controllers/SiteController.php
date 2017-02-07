@@ -11,6 +11,7 @@ use app\models\ContactForm;
 
 use app\models\MyForm;
 use yii\helpers\Html;
+use yii\web\Cookie;
 use yii\web\UploadedFile;
 use app\models\Publications;
 use yii\data\Pagination;
@@ -161,7 +162,7 @@ class SiteController extends Controller
 //        $_SESSION['redirect_id'] =  getId();
 
         $session = Yii::$app->session;
-        $session->set("redirect_id", getId());
+        $session->set("redirect_id", getId()); // "getId()" from funcs.php
 
         return $this->render('publications', ['publications' => $publications, 'pages' => $pages]);
     }
@@ -177,7 +178,20 @@ class SiteController extends Controller
         $data = array();
         $data['title'] = $single_publication->title;
         $data['content'] = $single_publication->content;
+
         $data['redirect_id'] = Yii::$app->session->get("redirect_id");
+
+//        $cookies = Yii::$app->response->cookies;
+//        $cookies->add(new Cookie([
+//            'name' => 'redirect_id',
+//            'value' => Yii::$app->session->get("redirect_id")
+//        ]));
+//
+//        $our_cookie = Yii::$app->request->cookies;
+//
+//        $data['redirect_id'] = $our_cookie->getValue("redirect_id");
+//        $our_cookie->remove("redirect_id");
+
         return $this->render('view', compact('data')) ;
     }
 }

@@ -5,7 +5,7 @@ use app\models\Post;
 use yii\data\Pagination;
 use yii\web\HttpException;
 
-class PostController extends AppController
+class BlogController extends AppController
 {
 
     function actionIndex()
@@ -23,14 +23,14 @@ class PostController extends AppController
 
     }
 
-    function actionTest( $user_name = 'Unrecognized user')
-    {
-        $data = array();
-        $data['hello'] = "Hello";
-        $data['hi'] = "Hi";
-        $data['user_name'] = $user_name;
-        return $this->render('test', compact('data')) ;
-    }
+//    function actionTest( $user_name = 'Unrecognized user')
+//    {
+//        $data = array();
+//        $data['hello'] = "Hello";
+//        $data['hi'] = "Hi";
+//        $data['user_name'] = $user_name;
+//        return $this->render('test', compact('data')) ;
+//    }
 
     function actionView( $id = '')
     {

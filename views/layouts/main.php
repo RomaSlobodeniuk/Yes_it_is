@@ -37,8 +37,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Admin', 'url' => ['/admin/post']],
-            ['label' => 'PostIndex', 'url' => ['/post/index']],
-            ['label' => 'PostTest', 'url' => ['/post/test']],
+            ['label' => 'Blog', 'url' => ['/blog/index']],
             ['label' => 'Publications', 'url' => ['/site/publications']],
             ['label' => 'Hello', 'url' => ['/site/hello']],
             ['label' => 'Form', 'url' => ['/site/form']],

@@ -6,7 +6,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'defaultRoute' => 'post/index',
+    'defaultRoute' => 'blo/index',
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
@@ -54,11 +54,11 @@ $config = [
 //                'test' => 'post/test',
 //                '<action>' => 'site/<action>',
 //                '<action>' => 'post/<action>'
-                'page/<page:\d+>' => 'post/index',
-                'post/<id:\d+>' => 'post/view',
+                'blog/page/<page:\d+>' => 'blog/index',
+                'blog/<id:\d+>' => 'blog/view',
                 'publications/<page:\d+>' => 'site/publications',
                 'publication/<id:\d+>' => 'site/view',
-                '/' => 'post/index'
+                '/' => 'blog/index'
             ],
         ],
 

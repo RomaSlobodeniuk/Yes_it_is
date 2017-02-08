@@ -1,7 +1,9 @@
 <?php
 
 namespace app\controllers;
-use app\models\Post;
+
+use Yii;
+use app\models\Posts;
 use yii\data\Pagination;
 use yii\web\HttpException;
 
@@ -10,39 +12,35 @@ class BlogController extends AppController
 
     function actionIndex()
     {
-        $query = Post::find()->select('id, title, excerpt')->orderBy('id DESC');
+        $query = Posts::find()->where(['hide' => 0]);
+        $all_the_posts_count = $query->count();
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 2, 'pageSizeParam' => FALSE, 'forcePageParam' => FALSE]);
-        $posts = $query->offset($pages->offset)->limit($pages->limit)->all();
-//        debug($posts);
-//        debug($_SERVER);
-        $data = array();
-        $data['hello'] = "Hello";
-        $data['hi'] = "Hi";
-
-        return $this->render('index', ['data' => $data, 'posts' => $posts, 'pages' => $pages]) ;
-
+        $posts = $query->orderBy(['date' => SORT_DESC])->offset($pages->offset)->limit($pages->limit)->all();
+        Posts::setNumbers($posts);
+//        $this->debug($posts);
+//        die;
+        $session = Yii::$app->session;
+        $session->set("redirect_id", getId()); // "getId()" from funcs.php
+        return $this->render('index', ['posts' => $posts,
+                                       'all_the_posts_count' => $all_the_posts_count,
+                                       'active_page' => Yii::$app->request->get('page', 1),
+                                       'count_pages' => $pages->getPageCount(),
+                                       'pages' => $pages
+                                      ]) ;
     }
 
-//    function actionTest( $user_name = 'Unrecognized user')
-//    {
-//        $data = array();
-//        $data['hello'] = "Hello";
-//        $data['hi'] = "Hi";
-//        $data['user_name'] = $user_name;
-//        return $this->render('test', compact('data')) ;
-//    }
-
-    function actionView( $id = '')
+    function actionView()
     {
-        $id = \Yii::$app->request->get('id'); // as alternative way to get id;
+        $id = Yii::$app->request->get('id'); // as alternative way to get id;
+        $data['all_the_posts_count'] = Yii::$app->request->get('all'); // as alternative way to get id;
+//        $data['redirect_id'] = Yii::$app->session->get("redirect_id");
+        $data['redirect_id'] = Yii::$app->request->get('redirect_id');
 //        $single_post = Post::find()->where(['id' => $id])->one();
-        $single_post = Post::findOne($id); // as alternative syntax;
+        $single_post = Posts::findOne($id); // as alternative syntax;
         if(empty($single_post)){
             throw new HttpException(404, 'The page you are searching for doesn\'t exist!');
         }
-        $data = array();
-        $data['title'] = $single_post->title;
-        $data['text'] = $single_post->text;
-        return $this->render('view', compact('data')) ;
+
+        return $this->render('view', compact('single_post', 'data')) ;
     }
 }

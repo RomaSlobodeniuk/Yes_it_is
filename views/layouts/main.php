@@ -38,14 +38,14 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Admin', 'url' => ['/admin/post']],
             ['label' => 'Blog', 'url' => ['/blog/index']],
-            ['label' => 'Publications', 'url' => ['/site/publications']],
-            ['label' => 'Hello', 'url' => ['/site/hello']],
-            ['label' => 'Form', 'url' => ['/site/form']],
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'About author', 'url' => ['/blog/author']],
+            ['label' => 'Videos', 'url' => ['/blog/videos']],
+            ['label' => 'Reviews', 'url' => ['/blog/reviews']],
+            ['label' => 'Sites', 'url' => ['/blog/sites']],
+//            ['label' => 'Contact', 'url' => ['/site/contact']],
+//            ['label' => 'Publications', 'url' => ['/site/publications']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+            ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
@@ -62,10 +62,12 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+        <div class="row">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= $content ?>
+        </div>
     </div>
 </div>
 

@@ -13,19 +13,21 @@ $next_post_number = (($single_post->id - 1) == 0) ? $data['all_the_posts_count']
         </div>
     </div>
 </div>
-
-<div class="col-sm-6 col-md-12">
-    <div class="thumbnail">
-        <img src="<?= $single_post->img; ?>" alt="pic">
-        <div class="caption">
-            <h3><?= $single_post->meta_desc; ?></h3>
-            <p><?= $single_post->full_text; ?></p>
-            <p><a href="<?= Yii::$app->urlManager->createUrl(['blog/index', 'page' => $redirect_id]); ?>"
-                  class="btn btn-primary" role="button">Go back</a>
-                <a href="<?= Yii::$app->urlManager->createUrl([
+<div class="col-sm-9">
+    <div class="col-sm-6 col-md-12">
+        <div class="thumbnail">
+            <img src="<?= $single_post->img; ?>" alt="pic">
+            <div class="caption">
+                <h3><?= $single_post->meta_desc; ?></h3>
+                <p><?= $single_post->full_text; ?></p>
+                <p><a href="<?= Yii::$app->urlManager->createUrl(['blog/index', 'page' => $redirect_id]); ?>"
+                      class="btn btn-primary" role="button">Go back</a>
+                    <a href="<?= Yii::$app->urlManager->createUrl([
                         'blog/' . $next_post_number,
-                        'all' => $data['all_the_posts_count']]); ?>" class="btn btn-default" role="button">Next article</a>
-            </p>
+                        'all' => $data['all_the_posts_count']]); ?>" class="btn btn-default" role="button">Next
+                        article</a>
+                </p>
+            </div>
         </div>
     </div>
 </div>

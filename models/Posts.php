@@ -23,7 +23,7 @@ class Posts extends ActiveRecord
 //        $this->intro_text = $this->replaceContent($this->intro_text);
 //        $this->full_text = $this->replaceContent($this->full_text);
 
-        $this->img = Yii::$app->homeUrl ."/images/posts/" . $this->img;
+        $this->img = Yii::$app->homeUrl ."images/posts/" . $this->img;
         $this->link = Yii::$app->urlManager->createUrl(["blog/view", "id" => $this->id]);
     }
 

@@ -17,8 +17,8 @@ class Author extends Widget
 
         $h3Author = Html::tag('h3', Html::encode($this->author));
         $aMessage = Html::tag('p', Html::encode($this->message . " - Current widget is: \"" . $this->getClassName() . "\""));
-        $aLink = Html::a('About author', ['blog/author'], ['class' => 'btn btn-primary']);
-        $p_aLink = Html::tag('p', $aLink);
+        $aLink = Html::a('About author', ['blog/author'], ['class' => 'alert-link']);
+        $p_aLink = Html::tag('div', $aLink, ['class' => 'alert alert-success text-center']);
         $div_caption = Html::tag('div', $h3Author.$aMessage.$p_aLink, ['class' => 'caption']);
         $imgAuthor = Html::img('@web/images/widgets/author_roma.jpg', ['alt' => 'My logo']);
         $divThumbnail =Html::tag('div', $imgAuthor.$div_caption, ['class' => 'thumbnail']);

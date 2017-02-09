@@ -37,9 +37,9 @@ $this->registerMetaTag([
                         <?= $post->title; ?>
                     </h4>
                     <p><?= substr($post->intro_text, 0, 255) . "..."; ?></p>
-                    <p><a href="<?= $post->link; ?>?all=<?= $all_the_posts_count ?>&redirect_id=<?= $active_page ?>">
+                    <p><a class="btn btn-info" role="button" href="<?= $post->link; ?>?all=<?= $all_the_posts_count ?>&redirect_id=<?= $active_page ?>">
                             Read more</a>
-                        <a href="<?= Yii::$app->urlManager->createUrl(['blog/releases']); ?>">Another releases</a>
+                        <a  class="btn btn-warning" role="button" href="<?= Yii::$app->urlManager->createUrl(['blog/releases']); ?>">Another releases</a>
                     </p>
                     <img src="<?= Yii::$app->homeUrl . "images/icons/calendar.png"; ?>" alt="eye" width="3%">
                     <span class="badge"><?= $post->date; ?></span>
@@ -59,12 +59,4 @@ $this->registerMetaTag([
             </div>
         </div>
     <?php endif; ?>
-</div>
-
-<div class="col-sm-3">
-    <?= Author::widget([
-            'message' => '"Hello from the Widget!"',
-            'author' => 'Roma Slobodeniuk']); ?>
-    <h1>WIDGETS</h1>
-    <h1>WIDGETS</h1>
 </div>

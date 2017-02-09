@@ -20,6 +20,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <link href="<?= Yii::$app->homeUrl ."images/icons/icon_1.png";?>" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
 <?php $this->beginBody() ?>

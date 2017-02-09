@@ -5,7 +5,10 @@ $next_post_number = (($single_post->id - 1) == 0) ? $data['all_the_posts_count']
 <div class="jumbotron">
     <div class="container">
         <div class="page-header">
-            <h2><?= $single_post->title; ?> <small><?= $single_post->meta_key; ?> </small></h2>
+            <h2>
+                <?= $single_post->title; ?>
+                <small><?= $single_post->meta_key; ?> </small>
+            </h2>
             <code><?= __FILE__; ?></code>
         </div>
     </div>
@@ -19,7 +22,9 @@ $next_post_number = (($single_post->id - 1) == 0) ? $data['all_the_posts_count']
             <p><?= $single_post->full_text; ?></p>
             <p><a href="<?= Yii::$app->urlManager->createUrl(['blog/index', 'page' => $redirect_id]); ?>"
                   class="btn btn-primary" role="button">Go back</a>
-                <a href="<?= Yii::$app->urlManager->createUrl(['blog/' . $next_post_number, 'all' => $data['all_the_posts_count']]); ?>" class="btn btn-default" role="button">Next release</a>
+                <a href="<?= Yii::$app->urlManager->createUrl([
+                        'blog/' . $next_post_number,
+                        'all' => $data['all_the_posts_count']]); ?>" class="btn btn-default" role="button">Next article</a>
             </p>
         </div>
     </div>

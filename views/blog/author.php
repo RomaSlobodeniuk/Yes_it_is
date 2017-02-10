@@ -33,6 +33,8 @@ $this->registerMetaTag([
             <script type="text/javascript">
                 VK.Widgets.Like('vk_like');
             </script>
+            <hr>
+            <div class="fb-like pull-left" data-href="http://localhost/04_test_files/Yes_it_is/web/blog/author" data-width="300px" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
         </div>
         <div class="col-sm-8">
             <div class="panel panel-primary">

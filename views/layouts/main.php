@@ -20,6 +20,11 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url"           content="http://localhost/04_test_files/Yes_it_is/web/blog/author" />
+    <meta property="og:type"          content="MySITE" />
+    <meta property="og:title"         content="Author" />
+    <meta property="og:description"   content="My description" />
+    <meta property="og:image"         content="<?=Yii::$app->urlManager->baseUrl.'/images/icons/icon_1.jpg'; ?>" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); ?>
@@ -27,6 +32,14 @@ AppAsset::register($this);
     <script src="https://vk.com/js/api/openapi.js?139" type="text/javascript"></script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <script type="text/javascript">
     VK.init({
         apiId: 	5868359,

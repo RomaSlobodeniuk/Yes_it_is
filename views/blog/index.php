@@ -1,6 +1,5 @@
 <?php
 use yii\widgets\LinkPager;
-use app\components\my_widgets\Author;
 
 $this->registerMetaTag([
     'name' => 'description',

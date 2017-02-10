@@ -9,7 +9,6 @@ use yii\web\HttpException;
 
 class BlogController extends AppController
 {
-
     function actionIndex()
     {
         $query = Posts::find()->where(['hide' => 0]);
@@ -30,7 +29,7 @@ class BlogController extends AppController
                                        'active_page' => Yii::$app->request->get('page', 1),
                                        'count_pages' => $pages->getPageCount(),
                                        'pages' => $pages
-                                      ]) ;
+                                      ]);
     }
 
     function actionView()
@@ -46,5 +45,12 @@ class BlogController extends AppController
         }
 
         return $this->render('view', compact('single_post', 'data', 'all_releases')) ;
+    }
+
+    function actionAuthor()
+    {
+
+
+        return $this->render('author', compact('single_post', 'data', 'all_releases')) ;
     }
 }

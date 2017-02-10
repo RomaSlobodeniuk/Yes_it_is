@@ -22,10 +22,17 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+    <?php $this->head(); ?>
     <link href="<?= Yii::$app->homeUrl . "images/icons/icon_1.png"; ?>" rel="shortcut icon" type="image/x-icon">
+    <script src="https://vk.com/js/api/openapi.js?139" type="text/javascript"></script>
 </head>
 <body>
+<script type="text/javascript">
+    VK.init({
+        apiId: 	5868359,
+        onlyWidgets: true
+    });
+</script>
 <div id="main">
     <?php $this->beginBody() ?>
 

@@ -1,7 +1,6 @@
 <?php
-use app\components\Hello;
+use app\components\my_widgets\Author;
 
-$hello = new Hello();
 $this->params['breadcrumbs'][] = $data['title'];
 $redirect_id = (!is_numeric($data['redirect_id'])) ? 1 : $data['redirect_id']
 ?>
@@ -12,7 +11,7 @@ $redirect_id = (!is_numeric($data['redirect_id'])) ? 1 : $data['redirect_id']
 <div class="alert alert-warning">
     <h2>Widget says to you: </h2>
     <h3>
-        <b><?= Hello::widget(['message' => '"Hello from the Widget!"']); ?></b>
+        <b><?= Author::widget(['message' => '"Hello from the Widget!"']); ?></b>
     </h3>
 </div>
 

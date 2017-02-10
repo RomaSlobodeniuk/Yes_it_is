@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Posts;
+use app\models\Courses;
 use yii\data\Pagination;
 use yii\web\HttpException;
 
@@ -49,8 +50,12 @@ class BlogController extends AppController
 
     function actionAuthor()
     {
+        return $this->render('author') ;
+    }
 
-
-        return $this->render('author', compact('single_post', 'data', 'all_releases')) ;
+    function actionVideos()
+    {
+        $courses = Courses::find()->orderBy(['id' => SORT_DESC])->all();
+        return $this->render('videos', compact('courses')) ;
     }
 }

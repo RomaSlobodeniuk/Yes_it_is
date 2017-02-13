@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Фев 10 2017 г., 17:18
+-- Время создания: Фев 13 2017 г., 16:48
 -- Версия сервера: 10.1.13-MariaDB
 -- Версия PHP: 5.6.23
 
@@ -103,6 +103,17 @@ CREATE TABLE `bl_reviews` (
   `from_whom` varchar(255) NOT NULL,
   `video` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `bl_reviews`
+--
+
+INSERT INTO `bl_reviews` (`id`, `from_whom`, `video`) VALUES
+(1, 'BadComedian', 'sjWAOWdMVUE'),
+(2, 'BadComedian', 'WGbM3w-74rc'),
+(3, 'BadComedian', 'yTN2XTGJJNg'),
+(4, 'Zeitgeist', 'yvmhdBmEplw'),
+(5, 'Zeitgeist', '2vYhTWNHDQk');
 
 -- --------------------------------------------------------
 
@@ -285,7 +296,7 @@ ALTER TABLE `bl_posts`
 -- AUTO_INCREMENT для таблицы `bl_reviews`
 --
 ALTER TABLE `bl_reviews`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблицы `bl_sef`
 --

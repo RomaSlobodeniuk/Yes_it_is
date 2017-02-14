@@ -113,3 +113,8 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.likes_socials {
+    padding: 5px;
+    border: 2px solid darkred;
+}

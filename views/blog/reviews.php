@@ -20,8 +20,15 @@ $this->registerMetaTag([
 <div class="jumbotron">
     <h1>My REVIEWS</h1>
     <p>These are testing courses on the reviews page</p>
-    <div>
-        <?= Socials::widget(['blog_view' => 'reviews']); ?>
+
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4 likes_socials">
+            <?= Socials::widget(['blog_view' => 'reviews']); ?>
+        </div>
+        <div class="col-sm-4">
+        </div>
     </div>
 </div>
 <div class="col-sm-9">

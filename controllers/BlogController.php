@@ -6,6 +6,7 @@ use Yii;
 use app\models\Posts;
 use app\models\Courses;
 use app\models\Reviews;
+use app\models\Sites;
 use yii\data\Pagination;
 use yii\web\HttpException;
 
@@ -64,5 +65,11 @@ class BlogController extends AppController
     {
         $reviews = Reviews::find()->orderBy('rand()')->all();
         return $this->render('reviews', compact('reviews')) ;
+    }
+
+    function actionSites()
+    {
+        $sites = Sites::find()->where(['active' => 1])->orderBy(['id' => SORT_DESC])->all();
+        return $this->render('sites', compact('sites')) ;
     }
 }

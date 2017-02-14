@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Фев 13 2017 г., 16:48
+-- Время создания: Фев 14 2017 г., 11:08
 -- Версия сервера: 10.1.13-MariaDB
 -- Версия PHP: 5.6.23
 
@@ -139,6 +139,20 @@ CREATE TABLE `bl_sites` (
   `description` varchar(255) NOT NULL,
   `active` tinyint(1) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `bl_sites`
+--
+
+INSERT INTO `bl_sites` (`id`, `address`, `description`, `active`) VALUES
+(1, 'http://lingualeo.com/ru/dashboard', 'Lingualeo !!! Feed your little hungry lion', 1),
+(2, 'https://www.google.com.ua/', 'Searching engine', 1),
+(3, 'https://github.com/RomaSlobodeniuk', 'GitHub - is the most beautiful and comfortable way to work easily without being scared you may lose your working repository and go back to square one...', 1),
+(4, 'https://www.facebook.com/', 'This is Facebook - Social network', 1),
+(5, 'https://myshows.me', 'You can check your watched TV-series here.', 1),
+(6, 'https://vk.com/', 'This is VK - Social network', 1),
+(7, 'http://getbootstrap.com/components', 'This is the components of the bootstrap system which allow you to construct your site easily. Try it YOURSELF!', 1),
+(8, 'http://trailerbe.com/', 'Trailers - there are so much trailers you can rent!', 1);
 
 -- --------------------------------------------------------
 
@@ -306,7 +320,7 @@ ALTER TABLE `bl_sef`
 -- AUTO_INCREMENT для таблицы `bl_sites`
 --
 ALTER TABLE `bl_sites`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT для таблицы `post`
 --

@@ -104,12 +104,12 @@ AppAsset::register($this);
                                     'id' => $post_id,
                                     'label' => 'Another articles'
                             ]); ?>
-                        <h4>Current Controller:
-                            <button class="btn btn-success"><?= Yii::$app->controller->id; ?></h4>
-                        <h4>Current Action:
-                            <button class="btn btn-primary"><?= Yii::$app->controller->action->id; ?></button>
-                        </h4>
                     <?php endif; ?>
+                    <h4>Current Controller:
+                        <button class="btn btn-success"><?= Yii::$app->controller->id; ?></h4>
+                    <h4>Current Action:
+                        <button class="btn btn-primary"><?= Yii::$app->controller->action->id; ?></button>
+                    </h4>
                 </div>
             </div>
         </div>

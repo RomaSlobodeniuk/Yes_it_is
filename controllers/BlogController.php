@@ -7,6 +7,7 @@ use app\models\Posts;
 use app\models\Courses;
 use app\models\Reviews;
 use app\models\Sites;
+use app\models\SiteForm;
 use yii\data\Pagination;
 use yii\web\HttpException;
 
@@ -28,11 +29,11 @@ class BlogController extends AppController
         $this->view->title = 'Blog';
 
         return $this->render('index', ['posts' => $posts,
-                                       'all_the_posts_count' => $all_the_posts_count,
-                                       'active_page' => Yii::$app->request->get('page', 1),
-                                       'count_pages' => $pages->getPageCount(),
-                                       'pages' => $pages
-                                      ]);
+            'all_the_posts_count' => $all_the_posts_count,
+            'active_page' => Yii::$app->request->get('page', 1),
+            'count_pages' => $pages->getPageCount(),
+            'pages' => $pages
+        ]);
     }
 
     function actionView()
@@ -43,33 +44,56 @@ class BlogController extends AppController
 //        $single_post = Post::find()->where(['id' => $id])->one();
         $single_post = Posts::findOne($id); // as alternative syntax;
 
-        if(empty($single_post)){
+        if (empty($single_post)) {
             throw new HttpException(404, 'The page you are searching for doesn\'t exist!');
         }
 
-        return $this->render('view', compact('single_post', 'data', 'all_releases')) ;
+        return $this->render('view', compact('single_post', 'data', 'all_releases'));
     }
 
     function actionAuthor()
     {
-        return $this->render('author') ;
+        return $this->render('author');
     }
 
     function actionVideos()
     {
         $courses = Courses::find()->orderBy(['id' => SORT_DESC])->all();
-        return $this->render('videos', compact('courses')) ;
+        return $this->render('videos', compact('courses'));
     }
 
     function actionReviews()
     {
         $reviews = Reviews::find()->orderBy('rand()')->all();
-        return $this->render('reviews', compact('reviews')) ;
+        return $this->render('reviews', compact('reviews'));
     }
 
     function actionSites()
     {
         $sites = Sites::find()->where(['active' => 1])->orderBy(['id' => SORT_DESC])->all();
-        return $this->render('sites', compact('sites')) ;
+        return $this->render('sites', compact('sites'));
+    }
+
+    function actionAddSite()
+    {
+        $site_form = new SiteForm();
+
+        if ($site_form->load(Yii::$app->request->post()) && $site_form->validate()) {
+            $site = new Sites();
+            $site->address = $site_form->address;
+            $site->description = $site_form->description;
+            $site->save();
+            $success = true;
+            $error = false;
+            return $this->render('add-site', compact('site_form', 'success', 'error'));
+        } else {
+            if (isset($_POST['address'])) {
+                $error = true;
+            } else {
+                $error = false;
+            }
+            $success = false;
+            return $this->render('add-site', compact('site_form', 'success', 'error'));
+        }
     }
 }

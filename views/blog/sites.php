@@ -23,6 +23,7 @@ $this->registerMetaTag([
 
     <div class="row">
         <div class="col-sm-4">
+            <a role="button" class="btn btn-primary" href="<?= Yii::$app->urlManager->createUrl(['blog/add-site'])?>">Add site</a>
         </div>
         <div class="col-sm-4 likes_socials">
             <?= Socials::widget(['blog_view' => strtolower($this->title)]); ?>
@@ -36,7 +37,7 @@ $this->registerMetaTag([
     <?php if (!empty($sites)): ?>
         <?php foreach ($sites as $site): ?>
             <div class="list-group">
-                <a href="<?= $site->address; ?>" class="list-group-item"><?= $site->description; ?></a>
+                <a href="<?= $site->address; ?>" class="list-group-item" target="_blank"><?= $site->description; ?></a>
             </div>
         <?php endforeach; ?>
     <?php endif; ?>

@@ -96,4 +96,39 @@ class BlogController extends AppController
             return $this->render('add-site', compact('site_form', 'success', 'error'));
         }
     }
+
+    function actionReleases(){
+        $query = Posts::find()->where(['hide' => 0, 'is_release' => 1]);
+        $all_the_posts = $query->orderBy(['date' => SORT_DESC])->all();
+        $all_the_releases = count($all_the_posts);
+        $pagination = new Pagination([
+            'defaultPageSize' => 2,
+            'totalCount' => $query->count()
+        ]);
+
+        $releases = $query->orderBy(['date' => SORT_DESC])->offset($pagination->offset)->limit($pagination->limit)->all();
+
+        Posts::setNumbers($releases, $all_the_posts);
+
+        return $this->render('releases', ['releases' => $releases,
+            'active_page' => Yii::$app->request->get('page', 1),
+            'count_pages' => $pagination->getPageCount(),
+            'all_the_releases' => $all_the_releases,
+            'pagination' => $pagination]);
+
+    }
+
+    function actionReleaseSingle(){
+        $id = Yii::$app->request->get('id'); // as alternative way to get id;
+        $data['all_the_releases_count'] = Yii::$app->request->get('all'); // as alternative way to get id;
+        $data['redirect_id'] = Yii::$app->request->get('redirect_id');
+        $data['release_number'] = Yii::$app->request->get('num');
+        $single_release = Posts::findOne($id); // as alternative syntax;
+
+        if (empty($single_release)) {
+            throw new HttpException(404, 'The page you are searching for doesn\'t exist!');
+        }
+
+        return $this->render('release-single', compact('single_release', 'data', 'id'));
+    }
 }

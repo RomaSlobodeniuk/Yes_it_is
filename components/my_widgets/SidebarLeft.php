@@ -20,7 +20,8 @@ class SidebarLeft extends Widget
         $aVideos =  Html::a('Videos', ['blog/videos']);
         $aReviews =  Html::a('Reviews', ['blog/reviews']);
         $aSites =  Html::a('Sites', ['blog/sites']);
-        $div_mySidenav = Html::tag('div', $aOnClick.$aAbout.$aVideos.$aReviews.$aSites, ['class' => 'sidenav', 'id' => 'mySidenav']);
+        $aReleases =  Html::a('Releases', ['blog/releases']);
+        $div_mySidenav = Html::tag('div', $aOnClick.$aAbout.$aVideos.$aReviews.$aSites.$aReleases, ['class' => 'sidenav', 'id' => 'mySidenav']);
 
         return $div_mySidenav;
     }

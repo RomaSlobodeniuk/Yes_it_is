@@ -58,6 +58,8 @@ $config = [
                 'blog/<id:\d+>' => 'blog/view',
                 'publications/<page:\d+>' => 'site/publications',
                 'publication/<id:\d+>' => 'site/view',
+                'blog/releases/<page:\d+>' => 'blog/releases',
+                'blog/release-single/<id:\d+>' => 'blog/release-single',
                 '/' => 'blog/index'
             ],
         ],

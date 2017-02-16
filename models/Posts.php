@@ -24,7 +24,11 @@ class Posts extends ActiveRecord
 //        $this->full_text = $this->replaceContent($this->full_text);
 
         $this->img = Yii::$app->homeUrl ."images/posts/" . $this->img;
-        $this->link = Yii::$app->urlManager->createUrl(["blog/view", "id" => $this->id]);
+        if(Yii::$app->controller->id == 'blog' && Yii::$app->controller->action->id == 'releases'){
+            $this->link = Yii::$app->urlManager->createUrl(["blog/release-single", "id" => $this->id]);
+        } else {
+            $this->link = Yii::$app->urlManager->createUrl(["blog/view", "id" => $this->id]);
+        }
     }
 
     public function replaceContent($text){

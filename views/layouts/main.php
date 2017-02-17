@@ -6,11 +6,15 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\widgets\ActiveForm;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\components\my_widgets\Author;
 use app\components\my_widgets\SidebarLeft;
 use app\components\my_widgets\RandomPosts;
+use app\models\SearchForm;
+
+$search_form = new SearchForm();
 
 AppAsset::register($this);
 ?>
@@ -20,11 +24,11 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:url"           content="http://localhost/04_test_files/Yes_it_is/web/blog/author" />
-    <meta property="og:type"          content="MySITE" />
-    <meta property="og:title"         content="Author" />
-    <meta property="og:description"   content="My description" />
-    <meta property="og:image"         content="<?=Yii::$app->urlManager->baseUrl.'/images/icons/icon_1.jpg'; ?>" />
+    <meta property="og:url" content="http://localhost/04_test_files/Yes_it_is/web/blog/author"/>
+    <meta property="og:type" content="MySITE"/>
+    <meta property="og:title" content="Author"/>
+    <meta property="og:description" content="My description"/>
+    <meta property="og:image" content="<?= Yii::$app->urlManager->baseUrl . '/images/icons/icon_1.jpg'; ?>"/>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); ?>
@@ -33,16 +37,17 @@ AppAsset::register($this);
 </head>
 <body>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
+        js = d.createElement(s);
+        js.id = id;
         js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.8";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 <script type="text/javascript">
     VK.init({
-        apiId: 	5868359,
+        apiId: 5868359,
         onlyWidgets: true
     });
 </script>
@@ -87,6 +92,26 @@ AppAsset::register($this);
 
         <div class="container">
             <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="input-group pull-right">
+                        <?php $form = ActiveForm::begin(['options' => ['class' => 'navbar-form navbar-left',
+                            'role' => 'search']]) ?>
+                        <div class="form-group">
+                            <?= $form->field($search_form, 'q')->textInput(['placeholder' => 'Search for...'])->label(false); ?>
+                        </div>
+                        <input type="hidden" name="func" value="search">
+                        <button type="submit" class="btn btn-default">Go!</button>
+                        <?php ActiveForm::end(); ?>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <hr>
+            <div class="row">
                 <span class="btn btn-primary" onclick="openNav()" role="button">Open sidebar</span>
                 <?= Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -100,10 +125,10 @@ AppAsset::register($this);
                         ]); ?>
                     <?php elseif (Yii::$app->controller->id == 'blog' && Yii::$app->controller->action->id == 'view'): ?>
                         <?php $post_id = Yii::$app->getRequest()->getQueryParam('id'); ?>
-                            <?= RandomPosts::widget([
-                                    'id' => $post_id,
-                                    'label' => 'Another articles'
-                            ]); ?>
+                        <?= RandomPosts::widget([
+                            'id' => $post_id,
+                            'label' => 'Another articles'
+                        ]); ?>
                     <?php endif; ?>
                     <h4>Current Controller:
                         <button class="btn btn-success"><?= Yii::$app->controller->id; ?></h4>

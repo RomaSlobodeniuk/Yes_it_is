@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Фев 14 2017 г., 11:08
+-- Время создания: Фев 17 2017 г., 11:10
 -- Версия сервера: 10.1.13-MariaDB
 -- Версия PHP: 5.6.23
 
@@ -46,20 +46,6 @@ INSERT INTO `bl_courses` (`id`, `d_id`, `src_id`, `title`, `alias`, `description
 (3, 1, 1, 'How to Become a Real Life Superhero', 'superhero_1.jpg', 'The world is a dangerous place and sometimes there''s a need for superheroes. Regrettably, there''s no real way to gain super strength or to fly like in the comic books. However, that doesn''t mean that someone can''t become a real life superhero. Across the world, regular people are donning costumes and creating personas to prevent crime and help their communities.[1] Becoming a real life superhero isn''t easy, and you should consider the risks and effort that come with it. Before you can walk the streets protecting others, you need to create a persona and be physically and mentally prepared for the task.\r\n\r\nCreating Your Persona.\r\n\r\nAct with honor and integrity. As a real life superhero, you should aim to set the example for those around you, specifically the youth. You can do this by always remaining respectful, and report crimes when they occur. Being honorable means that you stand for the right thing, regardless of whether it impacts you negatively.\r\nTo prevent people from being scared of you, an outgoing and positive attitude may be best.\r\nTry to motivate others to live a better life.', 2000000),
 (2, 0, 0, 'How to become enterprise star trek officer', 'enterprice_1.jpg', 'You should know these things:\r\n\r\nStar Trek uniforms.\r\nStar Trek uniforms are worn by crew members in the Star Trek science fiction franchise. While the Star Trek television series and motion pictures feature various costumes, those worn by actors portraying enlisted personnel and officers from the fictitious organization Starfleet are the ones most closely associated with Star Trek costuming. Though design varied among the successive costume designers, the uniforms costumes and insignia remained consistent within any one series or film. Costumes were re-designed to improve appearance when filmed and to improve the comfort for actors. Deliberately mixing styles of uniforms from the various series was occasionally used to enhance the sense of time travel or alternative universes.\r\n\r\nRank and insignia.\r\nThe rank system of the Star Trek universe resembles that of the United States Navy and the British Royal Navy in contrast to other science fiction franchises that use an army ranking system. In Star Trek: The Original Series (TOS) and Star Trek: The Motion Picture, ranks are indicated by sleeve stripes; in later movies based on The Original Series, ranks are indicated by pins on a shoulder strap and the left sleeve. In later television series, ranks are indicated by varying numbers of pips or bars on the individuals'' uniform collars.\r\n\r\nThe insignia are worn on the left breast by all personnel. Originally gold with a black border, but the shape differed based on the ship or base to which the person was assigned as seen in TOS episodes "Court Martial", "The Doomsday Machine", etc. In the case of the Enterprise, the insignia was a delta or arrowhead shape. A black symbol within the insignia (the same for most shapes) also indicated the wearer''s branch — a star with an elongated top point indicated command, a circle crossed by an oval (as a ringed planet) science and medical, and an angular spiral (a galaxy shape) operations and engineering. In the second pilot, the science/medical and engineering/operations symbols were reversed ("Where No Man Has Gone Before"), and there were other slight variations between the insignia as used in the pilots and in the regular series.\r\n\r\nA rank of fleet captain is mentioned in two episodes, but no insignia are shown. An August 3, 1978, memo describing the sleeve stripes for The Motion Picture does not mention the rank of lieutenant j.g., assigning its insignia to ensign, and identifies the rear admiral insignia as having one double-width stripe below one regular-width stripe.', NULL),
 (1, 0, 0, 'How to STOP FUCKING AROUND and BRING YOUR DREAMS TO LIFE TODAY', 'chase_dreams.jpg', 'Can you imagine how much simpler and more AWESOME your life would be if, anytime you knew you REALLY wanted something you just made it happen that DAY?\r\n\r\nImagine if, the day you really decided you wanted to be in fucking amazing shape you started working out and eating like a shit hot fit person … and then you just kept going every day after that, whilst also cultivating the mindset of “I AM in great shape”, until practical reality caught up with you.\r\n\r\nImagine if, the day you decided you wanted to be an author, you started writing (regardless of whether you felt like it or felt like your writing was good or even felt like you knew HOW!) and then every day after that you kept writing, and then you also published and let people know about your writing …\r\n\r\nImagine if, the day you had that idea for your membership or online program, you took a deep breath, squeezed your eyes tightly shut, and ANNOUNCED that sucker and then also followed through and launched it …\r\n\r\nImagine if, the day you realised that relationship was so not right and no you could NOT ‘make it work’, you left …\r\n\r\nImagine if, the day you had that idea for that product –\r\n\r\nThat thing –\r\n\r\nThat LIFE you really wanted to live –\r\n\r\nYou got off your FINE but let’s face it somewhat scaredy-cat ass –\r\n\r\nAnd you did it.\r\n\r\nBoom.\r\n\r\nLike.\r\n\r\nThat.\r\n\r\nYou do realise, don’t you, that it’s POSSIBLE to live that way? And it’s actually EASIER as well! Oh sure, it might feel FUCKING TERRIFYING the first few times you leap before looking or preparing, but then it becomes normal … just how you ‘do’ things … automatic … and you get to a point where you don’t even think about it all, in fact you wonder with genuine curiosity WHY on earth other people spend so much time thinking –\r\n\r\nAnd wishing –\r\n\r\nAnd wondering –\r\n\r\nAnd getting ready for a readiness that never comes and therefore a LIFE they never actually ever get to live.\r\n\r\nIn fact, the more you DO think about it the more you realise how WEIRD it is that you wasted so much time like this! Why on earth would you NOT just do stuff as soon as the idea or the KNOWINGNESS of it came to you? We have one life to live, after all! One life, in which:\r\n\r\nAnything we set our minds to we can achieve.\r\nPeople are going to judge or dislike you no matter which path you choose.\r\nYOU get to make your own rules.\r\nYou have a true purpose and calling of AWESOME.\r\nYou can make shit happen SO much faster than you realise possible.\r\nMOST things can be brought to life with a click of your fingers; the time and the effort WASTED is from thinking about it and trying to figure out (aka be God) in advance all of the what ifs WHICH YOU CAN NEVER FIGURE OUT NO MATTER HOW MUCH YOU TRY.\r\n\r\nOne life which, if you’re like the very most people out there, yes even most entrepreneurs, you are currently –\r\n\r\nLetting –\r\n\r\nSlip –\r\n\r\nAway.\r\n\r\nAnd all of this busyness you claim so proudly as a badge of honour why simultaneously wondering WHEN you’re going to be free to do what you REALLY want, why it can’t just FLOW easier, why you can’t seem to just DO things, and what it is you need to ADD to yourself in order to get to where you want to go …\r\n\r\nWill mean nothing.\r\n\r\nThe truth is, it means nothing already.\r\n\r\nIt doesn’t MATTER how busy you are.\r\nIt doesn’t MATTER how much of the WRONG FUCKING STUFF you’re getting done.\r\nIt doesn’t MATTER how you used to show up.\r\n\r\n', NULL);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `bl_minicourses`
---
-
-CREATE TABLE `bl_minicourses` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `d_id` int(10) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `img` varchar(255) NOT NULL,
-  `default_id` tinyint(1) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -237,12 +223,6 @@ ALTER TABLE `bl_courses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `bl_minicourses`
---
-ALTER TABLE `bl_minicourses`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Индексы таблицы `bl_posts`
 --
 ALTER TABLE `bl_posts`
@@ -296,11 +276,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `bl_courses`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT для таблицы `bl_minicourses`
---
-ALTER TABLE `bl_minicourses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `bl_posts`
 --

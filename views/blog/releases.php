@@ -28,7 +28,11 @@ $this->registerMetaTag([
         <?php foreach ($releases as $release): ?>
             <div class="media">
                 <div class="media-left">
-                    <a href="<?= $release->link; ?>?all=<?= $all_the_releases ?>&redirect_id=<?= $active_page ?>?&num=<?= $release->number ?>">
+                    <a href="<?=  Yii::$app->urlManager->createUrl(["blog/release-single", "id" => $release->link_id,
+                                                                                            "all" => $all_the_releases,
+                                                                                            "redirect_id" => $active_page,
+                                                                                            "num" => $release->number
+                        ]);?>">
                         <img class="media-object" src="<?= $release->img; ?>" alt="..." width="128 px" height="128 px">
                     </a>
                 </div>
@@ -40,7 +44,13 @@ $this->registerMetaTag([
                         <?= $release->title; ?>
                     </h4>
                     <p><?= substr($release->intro_text, 0, 255) . "..."; ?></p>
-                    <p><a class="btn btn-info" role="button" href="<?= $release->link; ?>?all=<?= $all_the_releases ?>&redirect_id=<?= $active_page ?>?&num=<?= $release->number ?>">
+                    <p><a class="btn btn-info" role="button" href="<?=
+                        Yii::$app->urlManager->createUrl(["blog/release-single", "id" => $release->link_id,
+                                                                                    "all" => $all_the_releases,
+                                                                                    "redirect_id" => $active_page,
+                                                                                    "num" => $release->number,
+
+                        ]);?>">
                             Read more</a>
                         <?php if ($release->is_release): ?>
                             <a  class="btn btn-danger" role="button" href="<?= Yii::$app->urlManager->createUrl(['blog/index']); ?>">All the posts</a>

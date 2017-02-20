@@ -156,18 +156,10 @@ class BlogController extends AppController
 
         $all_the_posts = $query->orderBy(['date' => SORT_DESC])->all();
 
-        $pagination = new Pagination([
-            'defaultPageSize' => 2,
-            'totalCount' => $query->count(),
-        ]);
-
-        $active_page = Yii::$app->request->get('page', 1);
-        $count_pages = $pagination->getPageCount();
-
-        $found_posts = $query->offset($pagination->offset)->limit($pagination->limit)->all();
+        $found_posts = $query->all();
         Posts::setNumbers($found_posts, $all_the_posts);
 
-        return $this->render('search', compact('q', 'found_posts', 'pagination', 'active_page','count_pages' , 'all_the_posts_count'));
+        return $this->render('search', compact('q', 'found_posts', 'all_the_posts_count'));
 
 
     }

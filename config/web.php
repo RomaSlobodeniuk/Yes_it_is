@@ -6,7 +6,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'defaultRoute' => 'blo/index',
+    'defaultRoute' => 'blog/index',
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
@@ -45,24 +45,27 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
 
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+//                'blog/page/<page:\d+>' => 'blog/index',
+                ['class' => 'app\components\SefRule',
+                'connectionID' => 'db'],
 //                'test' => 'post/test',
 //                '<action>' => 'site/<action>',
 //                '<action>' => 'post/<action>'
-                'blog/page/<page:\d+>' => 'blog/index',
-                'blog/<id:\d+>' => 'blog/view',
-                'publications/<page:\d+>' => 'site/publications',
-                'publication/<id:\d+>' => 'site/view',
-                'blog/releases/<page:\d+>' => 'blog/releases',
-                'blog/release-single/<id:\d+>' => 'blog/release-single',
-                '/' => 'blog/index'
-            ],
+//                'blog/page/<page:\d+>' => 'blog/index',
+//                'blog/<id:\d+>' => 'blog/view',
+//                'publications/<page:\d+>' => 'site/publications',
+//                'publication/<id:\d+>' => 'site/view',
+//                'blog/releases/<page:\d+>' => 'blog/releases',
+//                'blog/release-single/<id:\d+>' => 'blog/release-single',
+//                '/' => 'blog/index'
+            ]
         ],
+        'db' => require(__DIR__ . '/db.php'),
 
     ],
     'params' => $params,

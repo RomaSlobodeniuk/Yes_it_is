@@ -20,10 +20,13 @@ class RandomPosts extends Widget
         $list_group_item = '';
         foreach ($posts as $post) {
             $h4_heading = Html::tag('h4', $post->title, ['class' => 'list-group-item-heading']);
-            $post->link = $post->link . "?all=". Yii::$app->request->get('all');
             $imgPost = Html::img("{$post->img}", ['alt' => $this->getAlt($post->img), 'width' => '100%']);
             $pDate = Html::tag('p', $post->date, ['class' => 'list-group-item-text']);
-            $list_group_item .= Html::tag('a', $h4_heading . $imgPost . $pDate, ['href' => $post->link, 'class' => 'list-group-item']);
+            $list_group_item .= Html::tag('a', $h4_heading . $imgPost . $pDate, ['href' => Yii::$app->urlManager->createUrl(['blog/view',
+                'id' => $post->id,
+                'all' => Yii::$app->request->get('all'),
+                'redirect_id' => Yii::$app->request->get('redirect_id'),
+            ]), 'class' => 'list-group-item']);
         }
 
         $div_list_group = Html::tag('div', $list_group_item, ['class' => 'list-group']);
@@ -31,7 +34,8 @@ class RandomPosts extends Widget
         return $div_list_group;
     }
 
-    function getAlt($path){
+    function getAlt($path)
+    {
         $exploded_path = explode('/', $path);
         $alt = explode(".", $exploded_path[count($exploded_path) - 1]);
 

@@ -24,7 +24,10 @@ $this->registerMetaTag([
         <?php foreach ($posts as $post): ?>
             <div class="media">
                 <div class="media-left">
-                    <a href="<?= $post->link; ?>?all=<?= $all_the_posts_count ?>&redirect_id=<?= $active_page ?>">
+                    <a href="<?= Yii::$app->urlManager->createUrl(["blog/view", "id" => $post->link_id,
+                                                                                "all" => $all_the_posts_count,
+                                                                                "redirect_id" => $active_page,
+                                ]);?>">
                         <img class="media-object" src="<?= $post->img; ?>" alt="..." width="128 px" height="128 px">
                     </a>
                 </div>
@@ -36,8 +39,10 @@ $this->registerMetaTag([
                         <?= $post->title; ?>
                     </h4>
                     <p><?= substr($post->intro_text, 0, 255) . "..."; ?></p>
-                    <p><a class="btn btn-info" role="button" href="<?= $post->link; ?>?all=<?= $all_the_posts_count ?>&redirect_id=<?= $active_page ?>">
-                            Read more</a>
+                    <p><a class="btn btn-info" role="button" href="<?= Yii::$app->urlManager->createUrl(["blog/view", "id" => $post->link_id,
+                                                                                                                       "all" => $all_the_posts_count,
+                                                                                                                       "redirect_id" => $active_page,
+                            ]);?>">Read more</a>
                         <?php if ($post->is_release): ?>
                             <a  class="btn btn-warning" role="button" href="<?= Yii::$app->urlManager->createUrl(['blog/releases']); ?>">Another releases</a>
                         <?php endif; ?>

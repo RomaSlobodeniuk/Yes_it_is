@@ -37,9 +37,7 @@ $this->registerMetaTag([
                     <p><?=$single_release->full_text?></p>
                     <p>
                         <a href="<?= Yii::$app->urlManager->createUrl(['blog/releases', 'page' => $redirect_id]); ?>" class="btn btn-primary" role="button">Go back</a>
-                        <a href="<?= Yii::$app->urlManager->createUrl([
-                            'blog/release-single/' . $next_release_number,
-                            'all' => $data['all_the_releases_count']]); ?>" class="btn btn-default" role="button">Next Release</a>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['blog/release-single', 'id' => $next_release_number, 'all' => $data['all_the_releases_count']]); ?>" class="btn btn-default" role="button">Next Release</a>
                     </p>
                 </div>
             </div>

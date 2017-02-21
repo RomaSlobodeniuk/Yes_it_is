@@ -47,10 +47,7 @@ class SefRule extends UrlRule
             }
             $link = substr($link, 0, -1);
         }
-//        echo '<pre>';
-//        print_r($link);
-//        echo '</pre>';
-//        die;
+
         $sef = Sef::find()->where(["link" => $link])->one();
 
         if ($sef) {
@@ -67,6 +64,7 @@ class SefRule extends UrlRule
     public function parseRequest($manager, $request)
     {
         $pathInfo = $request->getPathInfo();
+
         if (preg_match('/^(.*)\.html$/i', $pathInfo, $matches)) {
             $link_sef = $matches[1];
             $sef = Sef::find()->where(["link_sef" => $link_sef])->one();
@@ -74,6 +72,7 @@ class SefRule extends UrlRule
                 $link_data = explode("?", $sef->link);
                 $route = $link_data[0];
                 $params = array();
+                $temp = array();
                 if (!empty($link_data[1])) {
                     $temp = explode("&", $link_data[1]);
                     foreach ($temp as $t) {
@@ -82,7 +81,7 @@ class SefRule extends UrlRule
                     }
                 }
 //                echo '<pre>';
-//                print_r([$route, $params]);
+//                print_r([$link_data[1], $temp, $route, $params]);
 //                echo '</pre>';
 //                die;
                 return [$route, $params];

@@ -28,7 +28,7 @@ $this->registerMetaTag([
         <?php foreach ($releases as $release): ?>
             <div class="media">
                 <div class="media-left">
-                    <a href="<?=  Yii::$app->urlManager->createUrl(["blog/release-single", "id" => $release->link_id,
+                    <a id="<?=$release->id;?>" href="<?=  Yii::$app->urlManager->createUrl(["blog/release-single", "id" => $release->link_id,
                                                                                             "all" => $all_the_releases,
                                                                                             "redirect_id" => $active_page,
                                                                                             "num" => $release->number
@@ -44,7 +44,7 @@ $this->registerMetaTag([
                         <?= $release->title; ?>
                     </h4>
                     <p><?= substr($release->intro_text, 0, 255) . "..."; ?></p>
-                    <p><a class="btn btn-info" role="button" href="<?=
+                    <p><a id="<?=$release->id;?>" class="btn btn-info" role="button" href="<?=
                         Yii::$app->urlManager->createUrl(["blog/release-single", "id" => $release->link_id,
                                                                                     "all" => $all_the_releases,
                                                                                     "redirect_id" => $active_page,

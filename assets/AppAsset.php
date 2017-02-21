@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/sidebar.js',
+        'js/hints.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

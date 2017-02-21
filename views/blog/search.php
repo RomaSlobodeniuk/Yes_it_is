@@ -27,7 +27,7 @@ $this->registerMetaTag([
         <?php foreach ($found_posts as $post): ?>
             <div class="media">
                 <div class="media-left">
-                    <a href="<?=  Yii::$app->urlManager->createUrl(["blog/release-single", "id" => $post->link_id,
+                    <a id="<?=$post->id;?>" href="<?=  Yii::$app->urlManager->createUrl(["blog/release-single", "id" => $post->link_id,
                         "all" => $all_the_posts_count,
                         "num" => $post->number
                     ]);?>">
@@ -43,7 +43,7 @@ $this->registerMetaTag([
                     </h4>
                     <p><?= substr($post->intro_text, 0, 255) . "..."; ?></p>
                     <?php $type = ($post->is_release) ? 'release-single' : 'view' ?>
-                    <p><a class="btn btn-info" role="button" href="<?=  Yii::$app->urlManager->createUrl(["blog/$type", "id" => $post->link_id,
+                    <p><a id="<?=$post->id;?>" class="btn btn-info" role="button" href="<?=  Yii::$app->urlManager->createUrl(["blog/$type", "id" => $post->link_id,
                             "all" => $all_the_posts_count,
                             "num" => $post->number
                         ]);?>   ">

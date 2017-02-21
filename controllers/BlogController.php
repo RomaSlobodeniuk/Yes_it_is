@@ -12,6 +12,7 @@ use app\models\SiteForm;
 use yii\bootstrap\Html;
 use yii\data\Pagination;
 use yii\web\HttpException;
+use \yii\web\Response;
 
 class BlogController extends AppController
 {
@@ -163,4 +164,22 @@ class BlogController extends AppController
 
 
     }
+
+    function actionHits(){
+        if (Yii::$app->request->isAjax && !empty(Yii::$app->request->post('id')) && Yii::$app->request->post('ajax_hits') === 'true') {
+            $id = Yii::$app->request->post('id');
+            $post = Posts::findOne($id);
+            $post->hits = (int)$post->hits + 1;
+
+            $post->save();
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return [
+                'id' => $id,
+                'success' => true,
+                'post hits' => $post->hits,
+            ];
+        }
+    }
+
 }
